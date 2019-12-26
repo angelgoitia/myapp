@@ -27,9 +27,11 @@
             <a id="notice"class="nav-link" href="#twitter" style="color: white;">Noticias</a>
           </li>
           <% if user_signed_in? && current_user.role == "estudiante" %>
-            <%= link_to "Lista de Profesor", "/users/profesor/show", :class => "nav-link", :style =>"color:white;" %>  
+            <%= link_to "Lista de Profesores", "/users/profesor/show", :class => "nav-link", :style =>"color:white;" %>  
+            <%= link_to "Horario", "/users/horario/show", :class => "nav-link", :style =>"color:white;" %>  
+          
           <% elsif user_signed_in? && current_user.role == "admin" %>
-            <%= link_to "Lista de Profesor", "/admin/profesor/show", :class => "nav-link", :style =>"color:white;" %>    
+            <%= link_to "Lista de Profesores", "/admin/profesor/show", :class => "nav-link", :style =>"color:white;" %>    
             <%= link_to "Nuevo Profesor", "/admin/profesor/new", :class => "nav-link", :style =>"color:white;" %>    
           <% end %>
         </ul>

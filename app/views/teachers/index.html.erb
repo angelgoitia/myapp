@@ -23,6 +23,10 @@
                             <%= link_to "Editar", '/admin/profesor/'+teacher.id.to_s+'/edit', class: "btn btn-outline-warning" %>
                             <%= link_to "Eliminar", teacher, method: :delete, class: "btn btn-outline-danger" %>
                         </td>
+                        <%else%>
+                        <td>
+                           <%= link_to "Seleccionar", '/users/profesor/'+teacher.id.to_s+'/select', class: "btn btn-outline-success" %>
+                        </td>
                         <% end %>
                     </tr>
                 <% end %>

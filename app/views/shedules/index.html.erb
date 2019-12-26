@@ -1,0 +1,27 @@
+<div class="col-md10 mx-auto text-center">
+    <h3>Horario</h3>
+<table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Carrera</th>
+                <th scope="col">Materia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if @shedules %>
+                <% @shedules.each do |shedule| %>
+                    <tr>
+                        <td><%= shedule.teacher.name %></td>
+                        <td><%= shedule.teacher.career %></td>
+                        <td><%= shedule.teacher.subject %></td>
+                    </tr>
+                <% end %>
+            <%else%>
+                <tr class="bg-danger">
+                    <td colspan="4" class="text-center">No tiene horario</td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

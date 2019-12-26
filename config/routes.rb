@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   
   get '/users/profesor/show', to: 'teachers#index'
+  get '/users/profesor/:id/select', to: 'shedules#select'
+  get '/users/horario/show', to: 'shedules#index'
   get '/admin/profesor/show', to: 'teachers#index'
   get '/admin/profesor/new', to: 'teachers#new'
   get '/admin/profesor/:id/edit', to: 'teachers#edit'
