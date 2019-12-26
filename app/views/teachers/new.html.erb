@@ -1,0 +1,36 @@
+<div class="row">&nbsp;</div>
+<div class="card mx-auto text-center" style="width: 30rem;">
+  <h2>Registrar Profesor</h2>
+
+  <%= form_for(@teacher) do |f| %>
+    <% @teacher.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger" role="alert">
+        <%= message %>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :nombre %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "Nombre y Apellido", :class => "form-control" %>
+    </div>
+
+    <br />
+
+    <div class="field">
+      <%= f.label :carrera %><br />
+      <%= f.text_field :career, autocomplete: "Carrera", :class => "form-control" %>
+    </div>
+
+    <br />
+
+    <div class="field">
+      <%= f.label :materia %><br />
+      <%= f.text_field :subject, autocomplete: "Materia", :class => "form-control" %>
+    </div>
+
+    <br />
+
+    <div class="actions">
+      <%= f.submit "Registrar", :class => "btn btn-danger"  %>
+    </div>
+  <% end %>
+</div>

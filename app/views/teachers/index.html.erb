@@ -1,0 +1,36 @@
+<div class="col-md10 mx-auto text-center">
+    <h3>Listado de Profesores</h3>
+<table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Carrera</th>
+                <th scope="col">Materia</th>
+                <% if current_user.role == "admin" %>
+                <th scope="col">Opción</th>
+                <%end%>
+            </tr>
+        </thead>
+        <tbody>
+            <% if @teachers %>
+                <% @teachers.each do |teacher| %>
+                    <tr>
+                        <td><%= teacher.name %></td>
+                        <td><%= teacher.career %></td>
+                        <td><%= teacher.subject %></td>
+                        <% if current_user.role == "admin" %>
+                        <td>
+                            <%= link_to "Editar", edit_teacher_path(teacher.id), class: "btn btn-outline-warning" %>
+                            <%= link_to "Eliminar", teacher, method: :delete, class: "btn btn-outline-danger" %>
+                        </td>
+                        <% end %>
+                    </tr>
+                <% end %>
+            <%else%>
+                <tr class="bg-danger">
+                    <td colspan="4" class="text-center">No hay Profesor</td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

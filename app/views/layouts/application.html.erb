@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+      <a class="navbar-brand" href="#">
+        <%= image_tag("logo.jpeg", width: "40px")%>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to "Inicio", root_path, :id => "inicio", :class => "nav-link", :style =>"color:white;" %>  
+          </li>
+          <li class="nav-item">
+            <a id="notice"class="nav-link" href="#twitter" style="color: white;">Noticias</a>
+          </li>
+          <% if user_signed_in? && current_user.role == "estudiante" %>
+            <%= link_to "Lista de Profesor", "/users/profesor/show", :class => "nav-link", :style =>"color:white;" %>  
+          <% elsif user_signed_in? && current_user.role == "admin" %>
+            <%= link_to "Lista de Profesor", "/admin/profesor/show", :class => "nav-link", :style =>"color:white;" %>    
+            <%= link_to "Nuevo Profesor", "/admin/profesor/new", :class => "nav-link", :style =>"color:white;" %>    
+          <% end %>
+        </ul>
+        <div class="my-2 my-lg-0">
+          <% if user_signed_in?%>
+              <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, :class => "btn btn-dark" %>
+          <% else %>
+              <%= link_to "Iniciar Sesión", new_user_session_path, :class => "btn btn-dark" %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+    <% if notice %>
+      <div class="alert alert-success" role="alert">
+        <%= notice %>
+      </div>
+    <% elsif alert %>
+      <div class="alert alert-danger" role="alert">
+        <%= alert %>
+      </div>
+    <% end %>
+    
+    <div class="row">&nbsp;</div>
+    <%= yield %>
+  </body>
+</html>

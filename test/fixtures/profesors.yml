@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  carrera: MyString
+  materia: MyString
+
+two:
+  name: MyString
+  carrera: MyString
+  materia: MyString
