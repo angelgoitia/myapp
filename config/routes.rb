@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/users/profesor/show', to: 'teachers#index'
   get '/admin/profesor/show', to: 'teachers#index'
   get '/admin/profesor/new', to: 'teachers#new'
+  get '/admin/profesor/:id/edit', to: 'teachers#edit'
   
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

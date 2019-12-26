@@ -30,6 +30,22 @@ class TeachersController < ApplicationController
     current_params
   end
 
+  def edit
+    @teacher = Teacher.find(params[:id])
+  end
+
+  def update
+    @teacher = Teacher.find(params[:id])
+    if @teacher.update(name: params[:teacher][:name],
+                      career: params[:teacher][:career],
+                      subject: params[:teacher][:subject])
+      
+      current_params
+    else
+      redirect_to '/admin/profesor/'+params[:id]+'/edit'
+    end
+  end
+
   private
   def current_params
     if current_user.role == "admin"
