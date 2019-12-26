@@ -5,7 +5,10 @@ class ShedulesController < ApplicationController
 
     def select
         @shedule = Shedule.new(user_id: current_user.id, teacher_id: params[:id])
-        @shedule.save
-        redirect_to '/users/horario/show'
+        if @shedule.save
+            redirect_to '/users/horario/show'
+        else
+            render :index
+        end
     end
 end
