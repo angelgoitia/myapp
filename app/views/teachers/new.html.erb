@@ -2,7 +2,7 @@
 <div class="card mx-auto text-center" style="width: 30rem;">
   <h2>Registrar Profesor</h2>
 
-  <%= form_for(@teacher) do |f| %>
+  <%= form_for(@teacher, url: '/admin/profesor/new') do |f| %>
     <% @teacher.errors.full_messages.each do |message| %>
       <div class="alert alert-danger" role="alert">
         <%= message %>

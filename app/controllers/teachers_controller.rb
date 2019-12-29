@@ -24,7 +24,7 @@ class TeachersController < ApplicationController
     end
   end
 
-  def destroy
+  def delete
     @teacher = Teacher.find(params[:id])
     @teacher.destroy
     current_params
